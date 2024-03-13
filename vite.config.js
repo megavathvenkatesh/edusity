@@ -1,7 +1,14 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  plugins: [
+    react({
+      // Add Rollup options here
+      rollupOptions: {
+        // Specify external modules to exclude from bundling
+        external: ['/src/main.jsx'],
+      },
+    }),
+  ],
+});
